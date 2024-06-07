@@ -23,6 +23,6 @@ echo "Added commit message: $commit_msg"
 # Änderungen in das Repository pushen
 git push
 echo "pushed to git"
-
-# Zeit des Push erfassen und mit Datum in Logfile schreiben
 echo "Zeitpunkt des Push: $current_date | Message: $commit_msg" >> ~/Docs/logs/autogit.log
+
+
