@@ -16,6 +16,11 @@ echo "Added all to git"
 git commit -m "$current_date | M122 | Scripts"
 echo "Added commit message"
 
+
+# Zeit des Push erfassen und mit Datum in Logfile schreiben
+push_time=$(date '+%Y-%m-%d %H:%M:%S')
+echo "Zeitpunkt des Push: $push_time" >> ~/Docs/logs/autogit.log
+
 # Änderungen in das Repository pushen
 git push
 echo "pushed to git"
