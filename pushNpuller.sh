@@ -13,12 +13,13 @@ git add .
 echo "Added all to git"
 
 # Commit mit Datum und Nachricht erstellen
-git commit -m "$current_date | M122 | Scripts"
-echo "Added commit message"
+commit_msg="$current_date | M122 | Scripts (Auto Update)"
+git commit -m "$commit_msg"
+echo "Added commit message: $commit_msg"
 
 # Änderungen in das Repository pushen
 git push
 echo "pushed to git"
 
 # Zeit des Push erfassen und mit Datum in Logfile schreiben
-echo "Zeitpunkt des Push: $current_date" >> ~/Docs/logs/autogit.log
+echo "Zeitpunkt des Push: $current_date | Message: $commit_msg" >> ~/Docs/logs/autogit.log
