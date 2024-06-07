@@ -9,8 +9,8 @@ cd ~/scripts/ || { echo "Verzeichnis ~/scripts/ nicht gefunden"; exit 1; }
 echo "Change directory to scripts/"
 
 # Pullt Änderungen aus dem Remote Repo
-git pull
 echo "Pull Date: $current_date" >> ~/Docs/logs/autogit.log
+git pull
 
 # Änderungen zu git hinzufügen
 git add .
@@ -22,7 +22,7 @@ git commit -m "$commit_msg"
 echo "Added commit message: $commit_msg"
 
 # Änderungen in das Repository pushen
-git push
 echo "Push Date: $current_date | Message: $commit_msg" >> ~/Docs/logs/autogit.log
+git push
 
 
