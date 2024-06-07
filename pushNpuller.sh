@@ -8,6 +8,9 @@ echo "Das aktuelle Datum: $current_date"
 cd ~/scripts/ || { echo "Verzeichnis ~/scripts/ nicht gefunden"; exit 1; }
 echo "Change directory to scripts/"
 
+# Pullt Änderungen aus dem Remote Repo
+git pull
+
 # Änderungen zu git hinzufügen
 git add .
 echo "Added all to git"
