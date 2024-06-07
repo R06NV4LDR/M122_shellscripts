@@ -10,6 +10,7 @@ echo "Change directory to scripts/"
 
 # Pullt Änderungen aus dem Remote Repo
 git pull
+echo "Pull Date: $current_date" >> ~/Docs/logs/autogit.log
 
 # Änderungen zu git hinzufügen
 git add .
@@ -22,7 +23,6 @@ echo "Added commit message: $commit_msg"
 
 # Änderungen in das Repository pushen
 git push
-echo "pushed to git"
-echo "Zeitpunkt des Push: $current_date | Message: $commit_msg" >> ~/Docs/logs/autogit.log
+echo "Push Date: $current_date | Message: $commit_msg" >> ~/Docs/logs/autogit.log
 
 
