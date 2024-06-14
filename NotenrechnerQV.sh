@@ -1,7 +1,17 @@
 #!/bin/bash
 
+cd ~ || exit
 
 log_file=~/Docs/logs/NotenrechnerQV.log
+
+log_message() {
+	local message="$1"
+	echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
+}
+
+log_message "Current directory: $(pwd)"
+log_message "Log file path: $log_file"
+
 
 # Funktion zur Berechnung des Durchschnitts
 calculate_weighted_average() {
@@ -24,10 +34,6 @@ calculate_weighted_average() {
 	fi
 }
 
-log_message() {
-	local message="$1"
-	echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> " $log_file"
-}
 
 # Noteneingabe
 log_message "Starting grade input process..."
