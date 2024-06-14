@@ -4,12 +4,13 @@ cd ~ || exit
 
 log_file=~/Docs/logs/NotenrechnerQV.log
 
+echo "" >> "$log_file"
+
 log_message() {
 	local message="$1"
-	echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
+	echo -e "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
 }
 
-log_message ""
 log_message "Current directory: $(pwd)"
 log_message "Log file path: $log_file"
 
@@ -84,4 +85,12 @@ echo "Praktische Arbeit als IPA: $praktische_arbeit"
 echo "Finaler Notenschnitt: $final_average"
 
 # Log final output to file
-echo "$(date '+%Y-%m-%d %H:%M:%S') - Final grades: erweiterte Grundkompetenzen=$erweiterte_grundkompetenzen, praktische Arbeit=$praktische_arbeit, Final average=$final_average" >> "$log_file"
+echo "$(date '+%Y-%m-%d %H:%M:%S')" >> "$log_file"
+echo "Final grades" >> "$log_file"
+echo "	├── erweiterte Grundkompetenzen: $erweiterte_grundkompetenzen" >> "$log_file"
+echo "	├── praktische Arbeit als IPA: $praktische_arbeit" >> "$log_file"
+echo "		├── Resultat der Arbeit: $resultat_der_arbeit" >> "$log_file"
+echo "		├── Fachgespräch und Präsentation: $fachgesprach_und_praesentation" >> "$log_file"
+echo "		└── Dokumentation: $dokumentation Final average: $final_average" >> "$log_file"
+
+
