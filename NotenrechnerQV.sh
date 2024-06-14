@@ -9,6 +9,7 @@ log_message() {
 	echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
 }
 
+log_message ""
 log_message "Current directory: $(pwd)"
 log_message "Log file path: $log_file"
 
