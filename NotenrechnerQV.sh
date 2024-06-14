@@ -7,13 +7,18 @@ calculate_weighted_average() {
 
 	while [[ $# -gt 0 ]]; do
 		local grade=$1
-		local grade_weight$2
-		total=$(echo "$total + ($grade * $grade_weight)" | bc)
-		weight=$(echo "$weight + $grade_weight" | bc)
+		local grade_weight=$2
+		total=$(echo "$total + ($grade * $grade_weight)" | bc -1)
+		weight=$(echo "$weight + $grade_weight" | bc -1)
 		shift 2
 	done
 
-	echo "scale=2; $total / $weight" | bc
+
+	if [["$weight" == "0"]]; then
+		echo "0"
+	else
+		echo "scale=2; $total / $weight" | bc -1
+	fi
 }
 
 # Noteneingabe
@@ -38,7 +43,7 @@ read resultat_der_arbeit
 # Berechnet die Durchschnitte der einzelnen Kategorien
 praktische_arbeit=$(calculate_weighted_average $resultat_der_arbeit 0.5 $dokumentation 0.25 $fachgespraech_und_praesentation 0.25)
 erfahrungsnote_informatik=$(calculate_weighted_average $informatikkompetenzen_average 0.8 $ueberbetriebliche_kurse_average 0.2)
-erweiterte_grundkompetenzen=$(echo "scale=2; $berufsschule_erweiterte_grundkompetenzen" | bc)
+erweiterte_grundkompetenzen=$(echo "scale=2; $berufsschule_erweiterte_grundkompetenzen" | bc -1)
 
 # Berechnet den Gesamtdurchschnitt
 final_average=$(calculate_weighted_average $praktische_arbeit 3 $erfahrungsnote_informatik 3 $erweiterte_grundkompetenzen 2 $allgemeinbildung 2)
