@@ -2,7 +2,7 @@
 
 # Aktuelles Datum in einer Variablen speichern
 current_date=$(date '+%Y-%m-%d %H:%M:%S')
-echo "Das aktuelle Datum: $current_date"
+echo "Das aktuelle Datum: $current_date" >> ~/Docs/logs/autogit.log
 
 # Verzeichnis wechseln
 if cd ~/scripts/; then
