@@ -76,7 +76,6 @@ log_message "Calculated erweiterte Grundkompetenzen average: $erweiterte_grundko
 
 # Berechnet den Gesamtdurchschnitt
 final_average=$(calculate_weighted_average $praktische_arbeit 0.5 $erfahrungsnote_informatik 0.375 $erweiterte_grundkompetenzen 0.125)
-log_message ""
 
 # Output the results
 echo "Erfahrungsnote «erweiterte Grundkompetenzen»: $erweiterte_grundkompetenzen"
@@ -89,7 +88,7 @@ echo "$(date '+%Y-%m-%d %H:%M:%S')" >> "$log_file"
 echo "Final grades" >> "$log_file"
 echo "	├── erweiterte Grundkompetenzen: $erweiterte_grundkompetenzen" >> "$log_file"
 echo "	│	├── Mathematik: -----" >> "$log_file"
-echo "	│	└── Englisch: -----" >> "$log_file"
+echo "	│	└── Englisch:   -----" >> "$log_file"
 echo "	├── praktische Arbeit als IPA: $praktische_arbeit" >> "$log_file"
 echo "	│	├── Resultat der Arbeit: $resultat_der_arbeit" >> "$log_file"
 echo "	│	├── Fachgespräch und Präsentation: $fachgesprach_und_praesentation" >> "$log_file"
