@@ -1,0 +1,34 @@
+=============================== SYSTEM INFORMATION ==============================
+Datum und Uhrzeit: Thu Jun 20 09:44:31 AM CEST 2024
+=================================================================================
+
+Betriebssystem: GNU/Linux
+Kernel-Version: 5.15.153.1-microsoft-standard-WSL2
+
+Hostname: R4B433
+Uptime: up 23 minutes
+
+================================ CPU INFORMATION ================================
+CPU(s):                             16
+On-line CPU(s) list:                0-15
+Model name:                         13th Gen Intel(R) Core(TM) i7-1360P
+Thread(s) per core:                 2
+Core(s) per socket:                 8
+Socket(s):                          1
+
+============================== MEMORY INFORMATION ===============================
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       573Mi        15Gi       2.3Mi       119Mi        14Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+================================== DISK USAGE ===================================
+Filesystem      Size  Used Avail Use% Mounted on
+total           4.9T  1.4T  3.5T  29% -
+
+============================= NETWORK INFORMATION ===============================
+    inet 127.0.0.1/8 scope host lo
+    inet 10.255.255.254/32 brd 10.255.255.254 scope global lo
+    inet 172.17.28.160/20 brd 172.17.31.255 scope global eth0
+
+=================================================================================
+Logfile wurde erfolgreich erstellt: system_info.log
