@@ -19,17 +19,23 @@ get_stock_price() {
     BASE_URL="https://api.polygon.io/v2/aggs/ticker/"
     URL="${BASE_URL}${SYMBOL}/range/1/day/${DATE}/${NEXT_DAY}?adjusted=true&sort=asc&apiKey=${API_KEY}"
     RESPONSE=$(curl -s "$URL")
-    # Überprüfe, ob der API-Aufruf erfolgreich war
+
+    # Überprüfen, ob der API-Aufruf erfolgreich war
     if [ $? -ne 0 ]; then
         echo "Fehler beim Abrufen der Aktienkurse für $SYMBOL"
         exit 1
     fi
+
     # Preis aus der Antwort extrahieren
-    PRICE=$(echo $RESPONSE | grep -o '"c":[0-9.]*' | awk -F':' '{print $2}')
+    # Hier wird angenommen, dass der Preis in der letzten Zeile von `results` steht
+    PRICE=$(echo $RESPONSE | grep -o '"c":[0-9.]*' | tail -n 1 | awk -F':' '{print $2}')
+
+    # Überprüfen, ob der Preis erfolgreich abgerufen wurde
     if [ -z "$PRICE" ]; then
         echo "Fehler: Aktienkurs für $SYMBOL konnte nicht abgerufen werden."
         exit 1
     fi
+
     echo $PRICE
 }
 
@@ -57,7 +63,7 @@ log_results() {
 # Hauptteil des Skripts
 
 # Benutzereingabe für das Aktiensymbol und das Startdatum
-read -p "Gib das Aktiensymbol ein (z.B. AAPL): " SYMBOL
+read -p "Gib das Aktiensymbol ein (z.B. MSFT): " SYMBOL
 read -p "Gib das Startdatum (YYYY-MM-DD) ein: " START_DATE
 
 # Wechselkurs aus der Logdatei holen
