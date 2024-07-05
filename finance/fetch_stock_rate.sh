@@ -54,9 +54,8 @@ log_results() {
     EXCHANGE_RATE=$3
     STOCK_VALUE_CHF=$4
     LOG_FILE="$LOG_DIR/${SYMBOL}_fetch_stock_rate.log"
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - Aktueller Preis von $SYMBOL: $STOCK_PRICE USD" >> "$LOG_FILE"
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - Letzter bekannter Wechselkurs CHF zu USD: $EXCHANGE_RATE" >> "$LOG_FILE"
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - Wert einer $SYMBOL Aktie in CHF: $STOCK_VALUE_CHF" >> "$LOG_FILE"
+    # Logdatei aktualisieren mit Datum, Symbol, Preis in USD und Preis in CHF
+    echo "$(date +"%Y-%m-%d %H:%M:%S"), $SYMBOL, $STOCK_PRICE USD, $STOCK_VALUE_CHF CHF" >> "$LOG_FILE"
     echo "Logdatei für $SYMBOL wurde aktualisiert: $LOG_FILE"
 }
 
