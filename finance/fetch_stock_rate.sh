@@ -43,7 +43,7 @@ get_stock_price() {
 calculate_stock_value_in_chf() {
     STOCK_PRICE_USD=$1
     EXCHANGE_RATE=$2
-    STOCK_VALUE_CHF=$(echo "$STOCK_PRICE_USD * $EXCHANGE_RATE" | bc)
+    STOCK_VALUE_CHF=$(echo "$STOCK_PRICE_USD * $EXCHANGE_RATE" | awk '{printf "%.2f", $0}')
     echo $STOCK_VALUE_CHF
 }
 
