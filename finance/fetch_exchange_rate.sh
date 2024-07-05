@@ -21,7 +21,7 @@ response=$(curl -s "https://${host}${endpoint}")
 # Überprüfen, ob die Anfrage erfolgreich war
 if [ $? -ne 0 ]; then
   echo "Fehler bei der Anfrage an die API"
-  echo "$(date) - Fehler bei der Anfrage an die API" >> exchange_rate.log
+  echo "$(date) - Fehler bei der Anfrage an die API" >> /home/rooney/scripts/finance/exchange_rate.log
   exit 1
 fi
 
@@ -31,11 +31,11 @@ rate=$(echo "$response" | grep -oP '"'"${to_currency}"'":\K[0-9.]+')
 # Überprüfen, ob der Ziel-Wechselkurs erfolgreich extrahiert wurde
 if [ -z "$rate" ]; then
   echo "Fehler beim Extrahieren des Wechselkurses"
-  echo "$(date) - Fehler beim Extrahieren des Wechselkurses" >> exchange_rate.log
+  echo "$(date) - Fehler beim Extrahieren des Wechselkurses" >> /home/rooney/scripts/finance/exchange_rate.log
   exit 1
 fi
 
 # Ergebnis anzeigen und in die Log-Datei schreiben
 result="${amount} ${from_currency} = ${rate} ${to_currency}"
 echo "$result"
-echo "$(date) - $result" >> exchange_rate.log
+echo "$(date) - $result" >> /home/rooney/scripts/finance/exchange_rate.log
